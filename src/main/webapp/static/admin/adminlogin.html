@@ -1,0 +1,108 @@
+	<!-- HK Wrapper -->
+	<div class="hk-wrapper">
+
+        <!-- Main Content -->
+        <div class="hk-pg-wrapper hk-auth-wrapper">
+            <header class="d-flex justify-content-between align-items-center">
+                <a class="d-flex auth-brand" href="#">
+                    <img class="brand-img" src="resources/admin/img/logo-dark.png" alt="brand" />
+                </a>
+                <div class="btn-group btn-group-sm">
+                    <a href="#" class="btn btn-outline-secondary">Help</a>
+                    <a href="#" class="btn btn-outline-secondary">About Us</a>
+                </div>
+            </header>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xl-5 col-md-4 d-xl-block d-lg-block d-md-block d-none pa-0">
+                    <img src="resources/admin/img/bg2.jpg" class="img-fluid" style="height:100vh"/>
+                    </div>
+                    <div class="col-xl-7 col-md-8 col-sm-12 pa-0" data-ng-if="contentShow == true">
+                        <div class="auth-form-wrap py-xl-0 py-50">
+                            <div class="auth-form w-xxl-55 w-xl-75 w-sm-90 w-xs-100">
+                                <form method="post" class="loginForm" name="loginForm" novalidate="novalidate">
+                                    <h1 class="display-4 mb-10  mt-5 mt-md-0">Welcome Back :)</h1>
+                                    <p class="mb-30">Sign in to your account(Super admin Only)</p>
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-12"
+										data-ng-show="failuremessage">
+										<div class="text-danger">{{failuremessage}}</div>
+									</div>
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" name="email" placeholder="Email" data-ng-model="user.email" type="email" required="required">
+                                    <div data-ng-show="loginForm.$submitted || loginForm.email.$touched ||loginForm.email.$dirty">
+                               <div class="angular-validate-error" data-ng-show="loginForm.email.$error.required">Please Enter Email Address</div>
+                               <div class="angular-validate-error" data-ng-show="loginForm.email.$error.email">Please Enter valid email address</div>
+    					             </div>
+                                    
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input class="form-control" placeholder="Password" type="password" name="password" data-ng-model="user.password" required="required">
+                                            <div class="input-group-append">
+                                                <span class="input-group-text"><span class="feather-icon"><i data-feather="eye-off"></i></span></span>
+                                            </div>
+                                        </div>
+                                         <div data-ng-show="loginForm.$submitted || loginForm.password.$touched || loginForm.password.$dirty">
+                                     <div class="angular-validate-error" data-ng-show="loginForm.password.$error.required">Please enter password</div>
+                                     <div class="angular-validate-error" data-ng-show="loginForm.password.$error.minlength || loginForm.password.$error.maxlength">The password length should be 6 and 10 digits</div>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-primary btn-block" type="submit" data-ng-click="adminLoginSubmit(user,loginForm)">Login</button>
+                                    
+                                    <div class="option-sep">or</div>
+                                    <p class="font-14 text-center mt-15">Having trouble logging in?<a href="javascript:void(0);" data-ng-click="showForgetPasswordForm()">Forgot password?</a></p>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- ********************************* Forget Password *************************************	 -->
+                    <div class="col-xl-7 col-md-8 col-sm-12 pa-0" data-ng-if="contentShow == false">
+                        <div class="auth-form-wrap py-xl-0 py-50">
+                            <div class="auth-form w-xxl-55 w-xl-75 w-sm-90 w-xs-100">
+                                <form method="post" class="loginForm" name="forgetPasswordForm" novalidate="novalidate">
+                                    <h1 class="display-4 mb-10  mt-5 mt-md-0">Forget Password</h1>
+                                    <p class="mb-30">Email will send to your Register Account</p>
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-12"
+										data-ng-show="failuremessage">
+										<div class="text-danger">{{failuremessage}}</div>
+									</div>
+                                    
+                                    <div class="form-group">
+                                        <input class="form-control" name="email" placeholder="Email" data-ng-model="userfp.email" type="email" required="required">
+                                    <div data-ng-show="forgetPasswordForm.$submitted || forgetPasswordForm.email.$touched ||forgetPasswordForm.email.$dirty">
+                               <div class="angular-validate-error" data-ng-show="forgetPasswordForm.email.$error.required">Please Enter Email Address</div>
+                               <div class="angular-validate-error" data-ng-show="forgetPasswordForm.email.$error.email">Please Enter valid email address</div>
+    					             </div>
+                                    
+                                    </div>
+                                   
+                                    
+                                    <div class="col-xs-12 col-sm-12 col-md-12"
+							       data-ng-show="successmessage">
+							   <div class="alert alert-success">{{successmessage}}</div>
+						           </div>
+						           <div class="col-lg-12 text-center">
+					<button type="submit" class="btn btn-primary"
+						data-ng-click="forgetPassword(userfp.email)">Submit</button>
+						<button type="submit" class="btn btn-secondary"
+						data-ng-click="closeForgetPassword()">Cancel</button><br>
+				</div>
+
+                                    <!-- <div class="option-sep">or</div>
+                                    <p class="font-14 text-center mt-15">Having trouble logging in?<a href="javascript:void(0);" data-ng-click="showForgetPasswordForm()">Forgot password?</a></p> -->
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        <!-- /Main Content -->
+		   
+		
+    </div>
+    

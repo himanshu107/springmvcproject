@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  data-ng-app="adminApp">
+  <head>
+    
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta name="description" content="ModelMugging.org - Admin Template">
+    <meta name="author" content="Łukasz Holeczek">
+    <meta name="keyword" content="Bootstrap,Admin,Template,Open,Source,jQuery,CSS,HTML,RWD,Dashboard">
+    <title>Super Admin </title>
+    <!-- Icons-->
+    
+    <link href="resources/admin/css/font-awesome.min.css" rel="stylesheet">
+    <link href='https://fonts.googleapis.com/css?family=Muli:400,300' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/simple-line-icons/2.4.1/css/simple-line-icons.css" rel="stylesheet">
+    <!-- Main styles for this application-->
+    <link href="resources/superadmin/dist/css/style.css"  rel="stylesheet">
+    <link rel="stylesheet" href="resources/front/css/spinner.css"> 
+     <link rel="shortcut icon" href="favicon.ico">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+	
+  <link rel="stylesheet"
+    href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.common-material.min.css" />
+<link rel="stylesheet"
+    href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.material.min.css" />
+<link rel="stylesheet"
+    href="https://kendo.cdn.telerik.com/2018.1.117/styles/kendo.material.mobile.min.css" />
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto'
+    rel='stylesheet' type='text/css' />
+    
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/select2/3.4.5/select2.css">
+    
+    
+    <!-- Custom CSS -->
+    <link href="resources/admin/css/style.css" rel="stylesheet" type="text/css">
+   </head>
+  <body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show" data-ng-controller='AdminHomeController' data-ng-init="getUser()">
+    
+    <div class="hk-wrapper hk-vertical-nav">
+
+        <!-- Top Navbar -->
+        <nav class="navbar navbar-expand-xl navbar-light fixed-top hk-navbar">
+            <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span class="feather-icon"><i data-feather="menu"></i></span></a>
+            
+                <span>PAYMENEX</span>
+            </a>
+            <div  style="padding-left: 36%;"><a href="javascript:void(0)"><strong>Master User</strong></a></div>
+            <ul class="navbar-nav hk-navbar-content">
+                
+                <li class="nav-item dropdown dropdown-authentication">
+                    <a class="nav-link dropdown-toggle no-caret" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="media">
+                            <div class="media-img-wrap">
+                               
+                            </div>
+                            <div class="media-body">
+                               <span>*<i class="zmdi zmdi-chevron-down"></i></span>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-right" data-dropdown-in="flipInX" data-dropdown-out="flipOutX">
+                        <a class="dropdown-item" href="javascript:void(0);" data-ng-click="logoutAdmin()"><i class="dropdown-icon zmdi zmdi-power"></i><span>Log out</span></a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <!-- /Top Navbar -->
+
+        <!-- Vertical Nav -->
+        <nav class="hk-nav hk-nav-dark">
+            <a href="javascript:void(0);" id="hk_nav_close" class="hk-nav-close"><span class="feather-icon"><i data-feather="x"></i></span></a>
+            <div class="nicescroll-bar">
+                <div class="navbar-nav-wrap">
+                    <ul class="navbar-nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#!/adminDashboardHome" data-ng-class="{activeTab: isActive('/adminDashboardHome')}"> 
+                                <span class="feather-icon"><i data-feather="home"></i></span>
+                                <span class="nav-link-text">Dashboard</span>
+                            </a>
+                           
+                        </li>
+                        
+                                        
+                       <!-- <li class="nav-item">
+                            <a class="nav-link" href="#!/adminclickmanagement" data-ng-class="{activeTab: isActive('/adminclickmanagement')}">
+                                <span class="feather-icon"><i data-feather="users"></i></span>
+                                <span class="nav-link-text">Clicks Management</span>
+                            </a>
+                        </li> 
+                        
+                          <li class="nav-item">
+                            <a class="nav-link" href="#!/payment-management" data-ng-class="{activeTab: isActive('/payment-management')}">
+                                <span class="feather-icon"><i data-feather="credit-card"></i></span>
+                                <span class="nav-link-text">Payment Credentials</span>
+                            </a>
+                        </li> 
+                        
+                          <li class="nav-item">
+                            <a class="nav-link" href="#!/transaction-management" data-ng-class="{activeTab: isActive('/transaction-management')}">
+                                <span class="feather-icon"><i data-feather="credit-card"></i></span>
+                                <span class="nav-link-text">Transaction Management</span>
+                            </a>
+                        </li>  -->
+                        
+                  
+                
+                </div>
+            </div>
+        </nav>
+        <div id="hk_nav_backdrop" class="hk-nav-backdrop"></div>
+        
+        <div data-ng-view></div>
+    </div>
+    
+	
+ 
+<script src="resources/superadmin/vendors/jquery/dist/jquery.min.js"></script>
+
+<script src="resources/angular/angular.min.js"></script>
+<script src="resources/angular/angular-route.js"></script>
+<script src="resources/angular/angular-idle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-select/0.17.1/select.js"></script> 
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.js"></script> -->
+
+
+ <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script> 
+  
+  <script src="https://cdn.rawgit.com/digitalBush/jquery.maskedinput/master/src/jquery.maskedinput.js"></script>
+    <script data-require="angular.js@1.5.x" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.11/angular.min.js" data-semver="1.5.11"></script>
+
+  
+    
+    <script src="resources/superadmin/vendors/popper.js/dist/umd/popper.min.js"></script>
+    <script src="resources/superadmin/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="resources/admin/js/jquery.slimscroll.js"></script>
+
+    <!-- Fancy Dropdown JS -->
+    <script src="resources/admin/js/dropdown-bootstrap-extended.js"></script>
+
+    <!-- FeatherIcons JavaScript -->
+    <script src="resources/admin/js/feather.min.js"></script>
+
+    <!-- Toggles JavaScript -->
+    <script src="resources/admin/js/toggle-data.js"></script>
+	
+	<!-- Vector Maps JavaScript -->
+    
+    <script src="resources/admin/js/vectormap-data.js"></script>
+
+    <!-- Init JavaScript -->
+    <script src="resources/admin/js/init.js"></script>
+	<script src="resources/admin/js/dashboard-data.js"></script>
+
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/export-data.js"></script>
+<script
+        src="https://kendo.cdn.telerik.com/2018.1.117/js/kendo.all.min.js"></script>
+<script src="resources/admin/js/dirPagination.js"></script>
+<script src="resources/angular/js/admin/adminApp.js"></script>
+
+ <script src="resources/angular/angular-bootbox.js"></script>
+    <script src="resources/front/js/bootbox/bootbox.js"></script>
+    <script src="//cdn.ckeditor.com/4.5.6/standard/ckeditor.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ng.ckeditor/2.0.2/ng-ckeditor.min.js"></script>
+    <script type="text/javascript" src="https://cdn.rawgit.com/wpalahnuk/ngAutocomplete/master/src/ngAutocomplete.js"></script>
+    
+<script src="resources/angular/controller/admin/AdminDashboardController.js"></script>
+<script src="resources/angular/controller/admin/AdminClickManagementController.js"></script>
+
+
+<script src="resources/angular/service/admin/AdminDashboardService.js"></script>
+<script src="resources/angular/service/admin/AdminClickManagementService.js"></script>
+
+<script src="resources/angular/controller/admin/AdminHomeController.js"></script>
+<script src="resources/angular/service/admin/AdminHomeService.js"></script>
+
+<script src="resources/angular/controller/admin/TransactionManagementController.js"></script>
+<script src="resources/angular/service/admin/TransactionManagementService.js"></script>
+
+<script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAqh9wshtK3e9BGi49IIIl18GdqYs0o0xg&libraries=places">
+    </script>
+    <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
+</script>
+  </body>
+</html>
